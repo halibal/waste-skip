@@ -7,7 +7,7 @@ import { Suspense } from 'react';
 export default function HomePage() {
     return (
         <div className="min-h-screen">
-            <main className="mx-auto max-w-7xl px-4 py-8">
+            <main className="mx-auto min-h-screen max-w-7xl px-4 py-8">
                 <SkipSelectionProgress />
                 <SkipSizeIntro />
                 <Suspense fallback={<SkipListSkeleton />}>
