@@ -3,6 +3,7 @@ export function createQueryString(
 ): string {
     const filteredParams = Object.entries(params)
         .filter(
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             ([_, value]) =>
                 value !== undefined &&
                 value !== null &&

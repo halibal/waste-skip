@@ -10,7 +10,17 @@
         "react-hooks/exhaustive-deps": "off",
         "@typescript-eslint/no-require-imports": "off",
         "@typescript-eslint/no-explicit-any": "off",
-        "@typescript-eslint/no-unused-vars": "off",
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": [
+            "error",
+            {
+                "ignoreRestSiblings": true,
+                "destructuredArrayIgnorePattern": "^_",
+                "argsIgnorePattern": "^_",
+                "varsIgnorePattern": "^_",
+                "caughtErrorsIgnorePattern": "^_"
+            }
+        ],
         "prettier/prettier": [
             "error",
             {

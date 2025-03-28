@@ -13,7 +13,6 @@ export default function SkipListItem({ skip }: SkipListItemProps) {
             <div className="flex-1">
                 <div className="flex items-center gap-2">
                     <div
-                        role="radio"
                         id={`skip-button-${skip.id}`}
                         data-tid={`skip-button-${skip.id}`}
                         className="flex h-5 w-5 items-center justify-center rounded-full border"

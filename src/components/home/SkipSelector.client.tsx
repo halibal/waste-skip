@@ -16,13 +16,18 @@ export default function SkipSelector({ skips, onSelect }: SkipSelectorProps) {
         if (selectedSkipId === skip.id) {
             // Unselect if already selected
             setSelectedSkipId(null);
-            onSelect && onSelect(null);
+            if (onSelect) {
+                onSelect(null);
+            }
+
             return;
         }
 
         // Select new item
         setSelectedSkipId(skip.id);
-        onSelect && onSelect(skip);
+        if (onSelect) {
+            onSelect(skip);
+        }
     }
 
     return (

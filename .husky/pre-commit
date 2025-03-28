@@ -4,34 +4,34 @@ pnpm format || {
     false;
 }
 
-# echo "🔍 Checking for linting issues..."
-# pnpm lint || {
-#     echo '❌ ESLint check failed. Please fix the issues and try again.'
-#     false;
-# }
+echo "🔍 Checking for linting issues..."
+pnpm lint || {
+    echo '❌ ESLint check failed. Please fix the issues and try again.'
+    false;
+}
 
-# echo "🔎 Checking for console.log statements..."
-# staged_files=$(git diff --cached --name-only --diff-filter=d | grep -E '\.(js|jsx|ts|tsx)$' || true)
+echo "🔎 Checking for console.log statements..."
+staged_files=$(git diff --cached --name-only --diff-filter=d | grep -E '\.(js|jsx|ts|tsx)$' || true)
 
-# if [ -z "$staged_files" ]; then
-#     echo "✅ No JavaScript/TypeScript files staged. Skipping console.log check."
-# else
-#     violations=$(echo "$staged_files" | xargs -I{} grep -Hn 'console.log' {} || true)
-#     if [ -n "$violations" ]; then
-#         echo "❌ ERROR: Remove console.log statements before committing!"
-#         echo "🔍 Found in the following locations:"
-#         echo "$violations" | while IFS=: read -r file line code; do
-#             trimmed_code=$(echo "$code" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
-#             echo "📂 File: $file"
-#             echo "🔢 Line: $line"
-#             echo "🚨 Code that needs to be removed: $trimmed_code"
-#             echo "--------------------------------------"
-#         done
-#         false;
-#     else
-#         echo "✅ No console.log statements found."
-#     fi
-# fi
+if [ -z "$staged_files" ]; then
+    echo "✅ No JavaScript/TypeScript files staged. Skipping console.log check."
+else
+    violations=$(echo "$staged_files" | xargs -I{} grep -Hn 'console.log' {} || true)
+    if [ -n "$violations" ]; then
+        echo "❌ ERROR: Remove console.log statements before committing!"
+        echo "🔍 Found in the following locations:"
+        echo "$violations" | while IFS=: read -r file line code; do
+            trimmed_code=$(echo "$code" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+            echo "📂 File: $file"
+            echo "🔢 Line: $line"
+            echo "🚨 Code that needs to be removed: $trimmed_code"
+            echo "--------------------------------------"
+        done
+        false;
+    else
+        echo "✅ No console.log statements found."
+    fi
+fi
 
 git add .
 
