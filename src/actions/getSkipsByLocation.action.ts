@@ -1,5 +1,3 @@
-'use server';
-
 import { createQueryString } from '@/helpers/createQueryString';
 
 const REM_WASTE_API_URL = process.env.REM_WASTE_API_URL;
@@ -24,8 +22,8 @@ export async function getSkipsByLocation({
         const response = await fetch(
             `${REM_WASTE_API_URL}/skips/by-location${queryString}`,
             {
-                cache: 'force-cache',
-                next: { revalidate: 60 },
+                cache: 'no-cache',
+                next: { revalidate: 0 },
             }
         );
 

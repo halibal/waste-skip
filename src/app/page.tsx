@@ -1,21 +1,18 @@
-import { getSkipsByLocation } from '@/actions/getSkipsByLocation.action';
+import SkipList from '@/components/home/SkipList';
 import { SkipSelectionProgress } from '@/components/home/SkipSelectionProgress.server';
 import { SkipSizeIntro } from '@/components/home/SkipSizeIntro.server';
+import SkipListSkeleton from '@/components/skeletons/SkipListSkeleton';
+import { Suspense } from 'react';
 
-const postcode = 'NR32';
-const area = 'Lowestoft';
-
-export default async function HomePage() {
-    const data = await getSkipsByLocation({
-        postcode,
-        area,
-    });
-
+export default function HomePage() {
     return (
         <div className="min-h-screen">
             <main className="mx-auto max-w-7xl px-4 py-8">
                 <SkipSelectionProgress />
                 <SkipSizeIntro />
+                <Suspense fallback={<SkipListSkeleton />}>
+                    <SkipList />
+                </Suspense>
             </main>
         </div>
     );
