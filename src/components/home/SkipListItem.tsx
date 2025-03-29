@@ -1,3 +1,6 @@
+import { Tooltip } from '@/components/Tooltip';
+import { cn } from '@/helpers/cn';
+import { AiFillInfoCircle } from 'react-icons/ai';
 import { CiCalendar } from 'react-icons/ci';
 import { FiCreditCard } from 'react-icons/fi';
 import { LuTruck, LuWeight } from 'react-icons/lu';
@@ -12,17 +15,17 @@ export default function SkipListItem({ skip }: SkipListItemProps) {
 
     return (
         <div className="flex justify-between">
-            <div className="relative flex w-28 flex-col items-center justify-center bg-secondary p-3 text-white">
+            <div className="relative z-0 flex w-28 flex-col items-center justify-center bg-secondary p-3 text-white">
                 <div
-                    id={`skip-button-${skip.id}`}
-                    data-tid={`skip-button-${skip.id}`}
+                    id={`skip-button-${skip?.id}`}
+                    data-tid={`skip-button-${skip?.id}`}
                     className="absolute top-2 left-2 flex h-5 w-5 items-center justify-center rounded-full border"
                 >
                     <div className="h-3 w-3 rounded-full bg-white" />
                 </div>
-                <span className="text-3xl">{skip.size}</span>
+                <span className="text-3xl">{skip?.size}</span>
                 <span className="text-sm">YARD</span>
-                {skip.forbidden && (
+                {skip?.forbidden && (
                     <span className="rounded-full bg-[#eab308]/20 px-2 py-0.5 text-xs text-[#eab308]">
                         Unavailable
                     </span>
@@ -32,22 +35,29 @@ export default function SkipListItem({ skip }: SkipListItemProps) {
                 <div className="mb-2 flex items-center gap-1">
                     <CiCalendar className="size-5" />
                     <span className="font-medium">
-                        {skip.hire_period_days} days hire
+                        {skip?.hire_period_days} days hire
                     </span>
                 </div>
                 <div className="flex items-center gap-2">
-                    <div className="flex items-center rounded-xl border border-gray-300 px-2 py-0.5 text-xs font-semibold">
+                    <div className="flex items-center rounded-full border border-gray-300 bg-gray-300/10 px-2.5 py-0.5 text-xs font-semibold">
                         <LuTruck className="mr-1 inline-block size-3" />
                         <span>
-                            {skip.allowed_on_road
+                            {skip?.allowed_on_road
                                 ? 'Road placement allowed'
                                 : 'Off-road only'}
                         </span>
                     </div>
-                    <div className="flex items-center rounded-xl border border-gray-300 px-2 py-0.5 text-xs font-bold">
+                    <div
+                        className={cn(
+                            'flex items-center rounded-full border border-gray-300 bg-gray-300/10 px-2.5 py-0.5 text-xs font-semibold',
+                            {
+                                'bg-yellow-400': !skip?.allows_heavy_waste,
+                            }
+                        )}
+                    >
                         <LuWeight className="mr-1 inline-block size-3" />
                         <span>
-                            {skip.allows_heavy_waste
+                            {skip?.allows_heavy_waste
                                 ? 'Heavy waste allowed'
                                 : 'No heavy waste'}
                         </span>
@@ -61,14 +71,16 @@ export default function SkipListItem({ skip }: SkipListItemProps) {
                     {skip?.price_before_vat?.toFixed()} + £
                     {skip?.vat?.toFixed()} VAT
                 </div>
-                <div className="text-xl font-bold text-[#0037c1]">
+                <div className="flex items-center justify-end gap-2 text-xl font-bold text-secondary">
+                    {skip?.transport_cost && (
+                        <Tooltip
+                            text={`Transport Fee: £${skip?.transport_cost.toFixed()}`}
+                        >
+                            <AiFillInfoCircle className="text-base text-primary" />
+                        </Tooltip>
+                    )}{' '}
                     £{priceWithVat?.toFixed()}
                 </div>
-                {skip?.transport_cost && (
-                    <div className="mt-1 text-[10px] text-red-500">
-                        Transport Fee: £{skip?.transport_cost?.toFixed()}
-                    </div>
-                )}
             </div>
         </div>
     );

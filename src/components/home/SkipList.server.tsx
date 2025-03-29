@@ -16,7 +16,7 @@ export default async function SkipList() {
         <section
             id="skip-list"
             data-tid="skip-list"
-            className="mx-auto max-h-[70vh] max-w-3xl overflow-y-auto p-4"
+            className="mx-auto max-w-3xl p-4"
         >
             <SkipSelector skips={data} />
         </section>
