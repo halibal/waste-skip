@@ -14,5 +14,4 @@ type Skip = {
     allowed_on_road: boolean;
     allows_heavy_waste: boolean;
     price_with_vat?: number;
-    name?: string;
 };

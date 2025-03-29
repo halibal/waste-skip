@@ -47,3 +47,32 @@ body {
 .selected-skip-button-unselected [id^='skip-button'] > div {
     display: none !important;
 }
+
+#skip-list {
+    overflow: auto;
+}
+
+#skip-list::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+#skip-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#skip-list::-webkit-scrollbar-thumb {
+    background-color: var(--color-secondary);
+    border-radius: 4px;
+    opacity: 0.6;
+}
+
+#skip-list::-webkit-scrollbar-thumb:hover {
+    opacity: 0.8;
+}
+
+/* For Firefox */
+#skip-list {
+    scrollbar-color: var(--color-secondary) transparent;
+    scrollbar-width: thin;
+}
