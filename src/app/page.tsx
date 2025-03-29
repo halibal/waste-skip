@@ -2,6 +2,7 @@ import SkipList from '@/components/home/SkipList.server';
 import { SkipSelectionProgress } from '@/components/home/SkipSelectionProgress.server';
 import { SkipSizeIntro } from '@/components/home/SkipSizeIntro.server';
 import SkipListSkeleton from '@/components/skeletons/SkipListSkeleton';
+import SkipBackground from '@/components/Skip';
 import { Suspense } from 'react';
 
 export default function HomePage() {
@@ -13,6 +14,7 @@ export default function HomePage() {
                 <Suspense fallback={<SkipListSkeleton />}>
                     <SkipList />
                 </Suspense>
+                <SkipBackground />
             </main>
         </div>
     );

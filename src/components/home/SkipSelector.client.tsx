@@ -67,7 +67,7 @@ export default function SkipSelector({ skips, onSelect }: SkipSelectorProps) {
                 </div>
             </div>
 
-            <div className="max-h-[70vh] space-y-3 overflow-y-auto">
+            <div className="max-h-[70vh] space-y-3 overflow-y-auto border-y border-secondary py-2">
                 {sortedSkips.map((skip) => (
                     <div
                         key={skip.id}
@@ -76,7 +76,7 @@ export default function SkipSelector({ skips, onSelect }: SkipSelectorProps) {
                             'hover:border-secondary hover:bg-white hover:shadow-sm',
                             selectedSkipId === skip.id
                                 ? 'border-secondary bg-white shadow-sm'
-                                : 'border-gray-200',
+                                : 'border-gray-300 bg-[#ededed]',
                             skip.forbidden && 'cursor-not-allowed opacity-60',
                             {
                                 'selected-skip-button-selected':

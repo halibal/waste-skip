@@ -39,7 +39,14 @@ export default function SkipListItem({ skip }: SkipListItemProps) {
                     </span>
                 </div>
                 <div className="flex items-center gap-2">
-                    <div className="flex items-center rounded-full border border-gray-300 bg-gray-300/10 px-2.5 py-0.5 text-xs font-semibold">
+                    <div
+                        className={cn(
+                            'flex items-center rounded-full border border-gray-300 bg-gray-300/10 px-2.5 py-0.5 text-xs font-semibold',
+                            {
+                                'bg-yellow-400': !skip?.allowed_on_road,
+                            }
+                        )}
+                    >
                         <LuTruck className="mr-1 inline-block size-3" />
                         <span>
                             {skip?.allowed_on_road

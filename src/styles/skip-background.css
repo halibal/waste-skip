@@ -1,0 +1,19 @@
+#skip-background {
+    width: 100vw;
+    height: 100vh;
+    background-color: white; /* Classic skip yellow */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Puts it behind all content */
+    clip-path: polygon(
+        10% 0%,
+        /* Top-left corner, slightly inward */ 90% 0%,
+        /* Top-right corner, slightly inward */ 100% 30%,
+        /* Bottom-right angled corner */ 80% 100%,
+        /* Bottom-right end, now at 20% inward */ 20% 100%,
+        /* Bottom-left end, now at 20% inward */ 0% 30%
+            /* Bottom-left angled corner */
+    );
+    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.3);
+}
