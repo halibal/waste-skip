@@ -4,7 +4,7 @@ export default function SkipListSkeleton() {
     return (
         <div className="mx-auto max-h-[70vh] max-w-3xl overflow-y-auto p-4">
             <div className="space-y-3">
-                {Array.from({ length: 5 }).map((_, index) => (
+                {Array.from({ length: 4 }).map((_, index) => (
                     <div
                         key={index}
                         className="relative cursor-pointer rounded-lg border-2 border-primary bg-amber-50/20 p-4 transition-all"

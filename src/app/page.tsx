@@ -1,4 +1,4 @@
-import SkipList from '@/components/home/SkipList';
+import SkipList from '@/components/home/SkipList.server';
 import { SkipSelectionProgress } from '@/components/home/SkipSelectionProgress.server';
 import { SkipSizeIntro } from '@/components/home/SkipSizeIntro.server';
 import SkipListSkeleton from '@/components/skeletons/SkipListSkeleton';
