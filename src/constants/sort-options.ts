@@ -1,4 +1,4 @@
-export const sortOptions = [
+export const sortOptions: SortOption[] = [
     { value: 'size', label: 'Yard' },
     { value: 'hire_period', label: 'Hire Period' },
     { value: 'allowed_on_road', label: 'Allowed On Road' },

@@ -1,6 +1,6 @@
 export function sortSkips(
     skipsToSort: Skip[],
-    sortBy: SortOption,
+    sortBy: SortOption['value'],
     direction: SortDirection
 ): Skip[] {
     const sortedSkips = [...skipsToSort];
