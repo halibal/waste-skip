@@ -33,20 +33,20 @@ export const metadataRoot: Metadata = {
                 type: 'image/x-icon',
             },
             {
-                url: '/assets/icons/android-icon-192x192.svg',
+                url: '/assets/icons/android-icon-192x192.png',
                 sizes: '192x192',
-                type: 'image/svg',
+                type: 'image/png',
             },
             {
-                url: '/assets/icons/android-icon-256x256.svg',
+                url: '/assets/icons/android-icon-256x256.png',
                 sizes: '256x256',
-                type: 'image/svg',
+                type: 'image/png',
             },
         ],
         apple: {
-            url: '/assets/icons/apple-icon-180x180.svg',
+            url: '/assets/icons/apple-icon-180x180.png',
             sizes: '180x180',
-            type: 'image/svg',
+            type: 'image/png',
         },
     },
     keywords: keywordsRoot.en,
@@ -62,7 +62,7 @@ export const metadataRoot: Metadata = {
         locale: brand.locale,
         images: [
             {
-                url: '/assets/images/remwaste-og.png',
+                url: '/assets/images/rem-waste-og.png',
                 alt: brand.name,
                 type: 'image/png',
                 width: 512,
@@ -83,7 +83,7 @@ export const metadataRoot: Metadata = {
         title: brand.name,
         images: [
             {
-                url: '/assets/images/remwaste-og.png',
+                url: '/assets/images/rem-waste-og.png',
                 alt: brand.name,
                 type: 'image/png',
                 width: 512,
