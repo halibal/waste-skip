@@ -5,6 +5,7 @@ import SortButton from '@/components/SortButton.client';
 import { sortOptions } from '@/constants/sort-options';
 import { cn } from '@/helpers/cn';
 import { sortSkips } from '@/helpers/sortSkips';
+import { useSkipHiringProgress } from '@/hooks/useSkipHiringProgress';
 import { useMemo, useState } from 'react';
 
 type SkipSelectorProps = {
@@ -16,6 +17,7 @@ export default function SkipSelector({ skips, onSelect }: SkipSelectorProps) {
     const [selectedSkipId, setSelectedSkipId] = useState<number | null>(null);
     const [sortOption, setSortOption] = useState<SortOption['value']>('size');
     const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
+    const { handleSkipSizeSelection } = useSkipHiringProgress();
 
     function handleSelect(skip: Skip) {
         if (selectedSkipId === skip.id) {
@@ -23,6 +25,7 @@ export default function SkipSelector({ skips, onSelect }: SkipSelectorProps) {
             if (onSelect) {
                 onSelect(null);
             }
+            handleSkipSizeSelection(false);
 
             return;
         }
@@ -31,6 +34,7 @@ export default function SkipSelector({ skips, onSelect }: SkipSelectorProps) {
         if (onSelect) {
             onSelect(skip);
         }
+        handleSkipSizeSelection(true);
     }
 
     function handleSortChange(option: SortOption['value']) {
@@ -67,7 +71,7 @@ export default function SkipSelector({ skips, onSelect }: SkipSelectorProps) {
                 </div>
             </div>
 
-            <div className="max-h-[70vh] space-y-3 overflow-y-auto border-y border-secondary py-2">
+            <div className="max-h-[50vh] space-y-3 overflow-y-auto border-y border-secondary py-2">
                 {sortedSkips.map((skip) => (
                     <div
                         key={skip.id}

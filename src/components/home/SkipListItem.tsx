@@ -22,7 +22,7 @@ export default function SkipListItem({ skip }: SkipListItemProps) {
 
     return (
         <div className="flex justify-between">
-            <div className="relative z-0 flex w-32 flex-col items-center justify-center gap-1 bg-secondary p-6 text-white">
+            <div className="relative z-0 flex w-28 flex-col items-center justify-center gap-1 bg-secondary p-6 text-white">
                 <div
                     id={`skip-button-${skip?.id}`}
                     data-tid={`skip-button-${skip?.id}`}
