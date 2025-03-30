@@ -10,5 +10,5 @@ export const brand = {
     locale: 'en-GB',
     publisher: 'Halibal',
     twitter: '@renewableenergymarketing',
-    website: 'http://renewableenergymarketing.net',
+    website: 'https://rem-waste-eight.vercel.app/',
 };
