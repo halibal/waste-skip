@@ -1,8 +1,8 @@
 import {
     LuCalendar,
     LuCreditCard,
-    LuFileCheck,
     LuMapPin,
+    LuShield,
     LuTrash2,
     LuTruck,
 } from 'react-icons/lu';
@@ -25,7 +25,7 @@ export const skipHiringSteps = [
     },
     {
         name: 'Permit Check',
-        icon: <LuFileCheck className="h-4 w-4" />,
+        icon: <LuShield className="h-4 w-4" />,
         id: 'permit',
     },
     {
