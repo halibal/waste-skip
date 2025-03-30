@@ -15,16 +15,15 @@ export function SkipHiringProgressProvider({
 }: SkipHiringProgressProviderProps) {
     const [currentStep, setCurrentStep] = useState<number>(initialStep);
     const [completedSteps, setCompletedSteps] = useState<number[]>([0, 1]);
-    const [isSkipSizeSelected, setIsSkipSizeSelected] =
-        useState<boolean>(false);
+    const [selectedSkipSize, setSelectedSkipSize] = useState<Skip | null>(null);
 
     const totalSteps = skipHiringSteps.length;
     const isFirstStep = currentStep === 0;
     const isLastStep = currentStep === totalSteps - 1;
     const activeStepId = skipHiringSteps[currentStep]?.id || '';
 
-    function handleSkipSizeSelection(value: boolean) {
-        setIsSkipSizeSelected(value);
+    function handleSkipSizeSelection(value: Skip | null) {
+        setSelectedSkipSize(value);
     }
 
     function goToStep(step: number) {
@@ -71,7 +70,7 @@ export function SkipHiringProgressProvider({
         isFirstStep,
         isLastStep,
         completedSteps,
-        isSkipSizeSelected,
+        selectedSkipSize,
         handleSkipSizeSelection,
     };
 

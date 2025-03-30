@@ -21,8 +21,8 @@ export default function SkipListItem({ skip }: SkipListItemProps) {
     // const priceWithVat = skip?.price_with_vat || priceWithTransport;
 
     return (
-        <div className="flex justify-between">
-            <div className="relative z-0 flex w-28 flex-col items-center justify-center gap-1 bg-secondary p-6 text-white">
+        <div className="flex justify-between max-sm:flex-col">
+            <div className="relative z-0 flex w-full items-center justify-center gap-1 bg-secondary p-6 text-white max-sm:py-2 sm:w-28 sm:flex-col">
                 <div
                     id={`skip-button-${skip?.id}`}
                     data-tid={`skip-button-${skip?.id}`}
@@ -30,24 +30,24 @@ export default function SkipListItem({ skip }: SkipListItemProps) {
                 >
                     <div className="h-3 w-3 rounded-full bg-white" />
                 </div>
-                <span className="text-4xl leading-7 font-bold">
+                <span className="text-3xl font-bold lg:text-4xl lg:leading-7">
                     {skip?.size}
                 </span>
-                <span className="text-sm tracking-wider">YARD</span>
+                <span className="text-xs tracking-wider lg:text-sm">YARD</span>
                 {skip?.forbidden && (
                     <span className="rounded-full bg-[#eab308]/20 px-2 py-0.5 text-xs text-[#eab308]">
                         Unavailable
                     </span>
                 )}
             </div>
-            <div className="flex-1 space-y-3 p-6 text-sm text-secondary">
+            <div className="flex-1 px-4 py-2 text-sm text-secondary max-md:flex max-md:flex-wrap max-md:items-center max-sm:justify-center max-sm:gap-2 md:space-y-3 md:p-6">
                 <div className="flex items-center gap-1">
                     <CiCalendar className="size-5" />
                     <span className="font-medium">
                         {skip?.hire_period_days} days hire
                     </span>
                 </div>
-                <div className="flex flex-wrap items-center gap-2">
+                <div className="flex flex-wrap items-center gap-2 max-sm:justify-center">
                     <div
                         className={cn(
                             'flex items-center rounded-full border border-gray-300 bg-gray-50 px-2.5 py-0.5 text-xs font-semibold',
@@ -91,12 +91,12 @@ export default function SkipListItem({ skip }: SkipListItemProps) {
                 </div>
             </div>
 
-            <div className="p-6 text-right">
-                <div className="flex items-center gap-2 text-sm text-gray-500">
-                    <FiCreditCard className="size-4" /> £
+            <div className="px-4 py-2 text-right sm:p-6">
+                <div className="flex items-center gap-2 text-xs text-gray-500 max-lg:justify-end max-sm:justify-center lg:text-sm">
+                    <FiCreditCard className="size-3 lg:size-4" /> £
                     {priceBeforeVat.toFixed()} + £{vat.toFixed()} VAT
                 </div>
-                <div className="flex items-center justify-end gap-2 text-2xl font-bold text-secondary">
+                <div className="flex items-center justify-end gap-2 text-2xl font-bold text-secondary max-sm:mt-4 max-sm:justify-center max-sm:gap-1 max-sm:text-3xl">
                     {skip?.transport_cost && (
                         <Tooltip
                             text={`Transport Fee: £${transportCost.toFixed()}`}

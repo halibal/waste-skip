@@ -25,7 +25,7 @@ export default function SkipSelector({ skips, onSelect }: SkipSelectorProps) {
             if (onSelect) {
                 onSelect(null);
             }
-            handleSkipSizeSelection(false);
+            handleSkipSizeSelection(null);
 
             return;
         }
@@ -34,7 +34,7 @@ export default function SkipSelector({ skips, onSelect }: SkipSelectorProps) {
         if (onSelect) {
             onSelect(skip);
         }
-        handleSkipSizeSelection(true);
+        handleSkipSizeSelection(skip);
     }
 
     function handleSortChange(option: SortOption['value']) {

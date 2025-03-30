@@ -9,6 +9,6 @@ type SkipHiringProgressContextType = {
     isFirstStep: boolean;
     isLastStep: boolean;
     completedSteps: number[];
-    isSkipSizeSelected: boolean;
-    handleSkipSizeSelection: (value: boolean) => void;
+    selectedSkipSize: Skip | null;
+    handleSkipSizeSelection: (value: Skip | null) => void;
 };
