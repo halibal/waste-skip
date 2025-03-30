@@ -72,11 +72,11 @@ export default function SkipSelector({ skips, onSelect }: SkipSelectorProps) {
                     <div
                         key={skip.id}
                         className={cn(
-                            'relative z-10 cursor-pointer overflow-hidden rounded-lg border-2 bg-amber-50/20 transition-all',
-                            'hover:border-secondary hover:bg-white hover:shadow-sm',
+                            'relative z-10 cursor-pointer overflow-hidden rounded-lg border-[3px] bg-white transition-all',
+                            'hover:border-primary hover:bg-white hover:shadow-sm',
                             selectedSkipId === skip.id
-                                ? 'border-secondary bg-white shadow-sm'
-                                : 'border-gray-300 bg-[#ededed]',
+                                ? 'border-primary shadow-sm'
+                                : 'border-gray-300',
                             skip.forbidden && 'cursor-not-allowed opacity-60',
                             {
                                 'selected-skip-button-selected':

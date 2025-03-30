@@ -21,10 +21,10 @@ export default function SortButton({
             key={option.value}
             onClick={() => handleSortChange(option.value)}
             className={cn(
-                'flex cursor-pointer items-center gap-1 rounded-full px-3 py-1 text-sm transition-colors',
+                'flex cursor-pointer items-center gap-1 rounded-lg border border-gray-200 px-3 py-1 text-sm transition-colors',
                 isActive
-                    ? 'bg-[#0037c1] text-white'
-                    : 'bg-gray-100 hover:bg-gray-200'
+                    ? 'bg-primary text-white hover:bg-primary/80'
+                    : 'hover:bg-gray-100'
             )}
             aria-pressed={isActive}
             role="button"
